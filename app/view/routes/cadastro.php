@@ -87,6 +87,15 @@ require_once 'vendor/autoload.php';
 						<input type="hidden" name="acao" value="login">
 						<input type="submit" name="CADASTRAR" id="CADASTRAR" value="CADASTRAR" onclick="cadastroUser();"  class="login100-form-btn">
 					</div>
+					<?php
+					if (isset($_SESSION['LogonError'])) {
+						echo "<div id='myAlert' class='alert alert-danger alert-dismissible' role='alert'>";
+						echo "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
+						$_SESSION['LogonError'];
+						echo  $_SESSION['LogonError'];
+						unset($_SESSION['LogonError']);
+					};
+					?>
 					</form>
 					<div class="flex-col-c p-t-80 p-b-40">
 						<span class="txt1 p-b-9">

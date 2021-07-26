@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/../../vendor/autoload.php';
 class ControllerUser
 {
@@ -20,7 +21,14 @@ class ControllerUser
             $senha = md5($senha);
             $user_type = $_POST['user_type'];
             self::$usercreate = UserCreate::Create($nome, $email, $tel, $senha, $user_type);
-            header("location:../../login");
+            if (isset($email)) {
+                header("location:../../login");
+            $_SESSION["UserExist"] = "O Usuário já existe!!! ";
+            } else {
+                header("location:../../login");
+            $_SESSION["UserSuccess"] = "O Usuário Criado com sucesso!!! ";
+            }
+            
         }
     }
 }

@@ -11,7 +11,7 @@ class logoutAdmin
             $_SESSION['nome'],
             $_SESSION['sobre_nome'],
             $_SESSION['email']);
-            $_SESSION['sairSucesso'] ="Deslogado com Sucesso!!!";
+            $_SESSION['sairSucesso'] ="O Usuárion foi desconectado com sucesso do sistema!";
            header("location:../../login");
         
     }

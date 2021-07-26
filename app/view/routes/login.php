@@ -84,6 +84,33 @@ require_once 'vendor/autoload.php';
 						unset($_SESSION['sairSucesso']);
 					};
 					?>
+					<?php
+					if (isset($_SESSION['UserSuccess'])) {
+						echo "<div id='myAlert' class='alert alert-success alert-dismissible' role='alert'>";
+						echo "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
+						$_SESSION['UserSuccess'];
+						echo $_SESSION['UserSuccess'];
+						unset($_SESSION['UserSuccess']);
+					};
+					?>
+					<?php
+					if (isset($_SESSION['UserExist'])) {
+						echo "<div id='myAlert' class='alert alert-danger alert-dismissible' role='alert'>";
+						echo "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
+						$_SESSION['UserExist'];
+						echo $_SESSION['UserExist'];
+						unset($_SESSION['UserExist']);
+					};
+					?>
+					<?php
+					if (isset($_SESSION['UserEmpty'])) {
+						echo "<div id='myAlert' class='alert alert-danger alert-dismissible' role='alert'>";
+						echo "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
+						$_SESSION['UserEmpty'];
+						echo $_SESSION['UserEmpty'];
+						unset($_SESSION['UserEmpty']);
+					};
+					?>
 
 
 

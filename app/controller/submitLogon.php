@@ -22,7 +22,7 @@ class SubmitLogin
                     header("location:../../painelAdm");
                 } else {
                     header("location:../../login");
-                    $_SESSION["LogonError"] = "Usuario ou Senha não validos, favor rever os campos.";
+                    $_SESSION["LogonError"] = "Usuário ou Senha não coincidem, favor rever os campos.";
                 }
             }
         }
