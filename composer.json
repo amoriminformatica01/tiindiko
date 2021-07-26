@@ -1,0 +1,22 @@
+{
+    "name": "developer/tiindiko",
+    "description": "Sistema de Pedidos de Delivery",
+    "license": "MIT",
+    "authors": [{
+        "name": "Pedro Amorim",
+        "email": "amoriminformatica01@gmail.com"
+    }],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.3.0"
+    },
+    "autoload": {
+        "classmap": ["app", "config"],
+        "psr-4": {
+            "tiindiko\\": "tiindiko/",
+            "vendor\\": []
+
+
+        }
+    }
+}
