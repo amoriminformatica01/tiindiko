@@ -1,6 +1,6 @@
 <?php
-session_start();
 require_once 'vendor/autoload.php';
+session_start();
 
 ?>
 
@@ -8,7 +8,7 @@ require_once 'vendor/autoload.php';
 <html lang="pt-BR">
 
 <head>
-	<title>Login Ti Indiko</title>
+	<title>Login Administrativo Ti Indiko</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@ require_once 'vendor/autoload.php';
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="app/controller/submitUser.php" method="POST" enctype="multipart/form-data">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="app/controller/submitAdmin.php" method="POST" enctype="multipart/form-data">
 					<span class="login100-form-title">
 						<img src="public/imgs/logo.png" width="200">
 					</span>
@@ -56,15 +56,7 @@ require_once 'vendor/autoload.php';
 						<input type="submit" class="login100-form-btn" name="LOGAR" value="LOGAR">
 					</div>
 
-					<div class="flex-col-c p-t-80 p-b-40">
-						<span class="txt1 p-b-9">
-							Ainda não possui uma conta?
-						</span>
-
-						<a href="cadastro" class="txt3">
-							Cadastre-se agora!
-						</a>
-					</div>
+					
 
 					<?php
 					if (isset($_SESSION['LogonError'])) {

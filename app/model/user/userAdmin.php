@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../../../vendor/autoload.php';
-class UserLogon
+class UserAdmin
 {
     public static $connection;
     protected static $usercreate;
@@ -10,7 +10,7 @@ class UserLogon
         try {
             self::$connection = Connection::valuesConnection();
             $connection= array();
-            $sql = self::$connection->prepare("SELECT * FROM  users_pro WHERE email = :email AND senha = :senha LIMIT 1");
+            $sql = self::$connection->prepare("SELECT * FROM administrador WHERE email = :email AND senha = :senha LIMIT 1");
             $sql->bindValue(':email', $email);
             $sql->bindValue(':senha', $senha);
             $sql->execute();

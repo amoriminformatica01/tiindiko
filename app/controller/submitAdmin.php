@@ -1,7 +1,6 @@
-<?php
-session_start();
+ <?php
 require_once __DIR__ . '../../../vendor/autoload.php';
-class SubmitLogin
+class SubmitAdmin
 {
     public $conn;
     public static $UserLogon;
@@ -13,19 +12,19 @@ class SubmitLogin
                 $email = addslashes($_POST['email']);
                 $senha = addslashes($_POST['senha']);
                 $senha = md5($senha);
-                self::$UserLogon = UserLogon::Logon($email, $senha);
+                self::$UserLogon = UserAdmin::Logon($email, $senha);
                 $conn = self::$UserLogon;
                 if (!empty($conn)){
                     $_SESSION['nome'] = $conn['nome'];
                     $_SESSION['sobre_nome'] = $conn['sobre_nome'];
                     $_SESSION['email'] = $conn['email'];
-                    header("location:../../painelAdm");
+                    header("location:../../administrativo");
                 } else {
-                    header("location:../../login");
+                    header("location:../admin");
                     $_SESSION["LogonError"] = "Usuário ou Senha não coincidem, favor rever os campos.";
                 }
             }
         }
     }
 }
-$submitLogin = SubmitLogin::logon();
+$submitLogin = SubmitAdmin::logon();

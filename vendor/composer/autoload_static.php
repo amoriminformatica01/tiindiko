@@ -25,11 +25,15 @@ class ComposerStaticInitcf085260f03dc6383b52926239427380
         'Connection' => __DIR__ . '/../..' . '/app/model/connection/connection.php',
         'ControllerUser' => __DIR__ . '/../..' . '/app/controller/validateuser.php',
         'InterfaceConnection' => __DIR__ . '/../..' . '/app/model/connection/interfaceConnection.php',
-        'SubmitLogin' => __DIR__ . '/../..' . '/app/controller/submitLogon.php',
+        'SubmitAdmin' => __DIR__ . '/../..' . '/app/controller/submitAdmin.php',
+        'SubmitUser' => __DIR__ . '/../..' . '/app/controller/submitUser.php',
         'Url' => __DIR__ . '/../..' . '/config/filesConfig/router.php',
+        'User' => __DIR__ . '/../..' . '/app/model/user/user.php',
+        'UserAdmin' => __DIR__ . '/../..' . '/app/model/user/userAdmin.php',
         'UserCreate' => __DIR__ . '/../..' . '/app/model/user/userCreate.php',
-        'UserLogon' => __DIR__ . '/../..' . '/app/model/user/userLogon.php',
         'ValuesConfig' => __DIR__ . '/../..' . '/config/filesConfig/valuesConfig.php',
+        'logoutAdmin' => __DIR__ . '/../..' . '/app/controller/disableAdmin.php',
+        'logoutUser' => __DIR__ . '/../..' . '/app/controller/disableLogin.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

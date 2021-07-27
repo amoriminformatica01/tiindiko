@@ -9,7 +9,7 @@
     var ctx = document.getElementById('myChart')
         // eslint-disable-next-line no-unused-vars
     var myChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'bar',
         data: {
             labels: [
                 'Total de Lojistas',
@@ -45,12 +45,12 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: false
                     }
                 }]
             },
             legend: {
-                display: true
+                display: false
             }
         }
     })

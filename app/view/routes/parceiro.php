@@ -1,6 +1,10 @@
 <?php
 session_start();
+if (!empty($_SESSION['email'])) {
 
+    header("location:./login");
+} else {
+}
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -11,7 +15,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
-    <title>Painel Administrativo Tiindiko</title>
+    <title>Painel do parceiro Tiindiko</title>
     <!-- Bootstrap core CSS -->
     <link href="public/css/bootstrap.4.6.min.css" rel="stylesheet">
 
@@ -79,31 +83,49 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="user"></span>
-                                Clientes
+                                Meu Perfil
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="package"></span>
-                                Lojistas/Profissionais
+                                Meus Profissionais
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="users"></span>
-                                Parceiros e Vagas de Emprego
+                                Planos e Assinaturas
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="clipboard"></span>
-                                Planos de Assinaturas
+                                Comentários
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="clipboard"></span>
+                                Avaliações
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="clipboard"></span>
+                                Sugestões
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="layers"></span>
-                                
+                                Notificações
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="layers"></span>
+                                Suporte e Atendimento
                             </a>
                         </li>
                     </ul>
@@ -114,38 +136,12 @@ session_start();
                             <span data-feather="plus-circle"></span>
                         </a>
                     </h6>
-                    <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </nav>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Dashboard</h1>
+                    <h1 class="h2">Parceiro</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -158,9 +154,9 @@ session_start();
                     </div>
                 </div>
 
-                <canvas  style="background-color:red;background:url('public/images/background.jpg');" class="my-4 w-100" id="myChart" width="660" height="300"></canvas>
+                <canvas  class="my-4 w-100" id="myChart" width="660" height="300"></canvas>
 
-                <h2>Section title</h2>
+                <!--<h2>Section title</h2>
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
                         <thead>
@@ -182,7 +178,7 @@ session_start();
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div>-->
             </main>
         </div>
     </div>
@@ -199,7 +195,7 @@ session_start();
 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <script src="public/js/dashboard.js"></script>
+    <script src="public/js/parceiro.js"></script>
 </body>
 
 </html>

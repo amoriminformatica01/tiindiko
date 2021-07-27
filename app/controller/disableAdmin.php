@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '../../../vendor/autoload.php';
-class logoutUser
+class logoutAdmin
 {
 
     function __construct()
@@ -12,7 +12,7 @@ class logoutUser
             $_SESSION['sobre_nome'],
             $_SESSION['email']);
             $_SESSION['sairSucesso'] ="O Usuárion foi desconectado com sucesso do sistema!";
-           header("location:../../login");
+           header("location:../../admin");
         
     }
 }
