@@ -20,7 +20,7 @@ class SubmitAdmin
                     $_SESSION['email'] = $conn['email'];
                     header("location:../../administrativo");
                 } else {
-                    header("location:../admin");
+                    header("location:../../admin");
                     $_SESSION["LogonError"] = "Usuário ou Senha não coincidem, favor rever os campos.";
                 }
             }
