@@ -1,9 +1,8 @@
 <?php
 session_start();
-if (!empty($_SESSION['email'])) {
-
-    header("location:./login");
-} else {
+if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
+    header('location:./login');
+    $_SESSION['UserEmpty'] = "usuario não esta ativo no sistema";
 }
 ?>
 <!doctype html>

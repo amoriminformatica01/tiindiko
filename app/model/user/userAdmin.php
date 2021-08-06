@@ -10,7 +10,7 @@ class UserAdmin
         try {
             self::$connection = Connection::valuesConnection();
             $connection= array();
-            $sql = self::$connection->prepare("SELECT * FROM administrador WHERE email = :email AND senha = :senha LIMIT 1");
+            $sql = self::$connection->prepare("SELECT * FROM administrador WHERE email =:email  AND senha = :senha LIMIT 1");
             $sql->bindValue(':email', $email);
             $sql->bindValue(':senha', $senha);
             $sql->execute();

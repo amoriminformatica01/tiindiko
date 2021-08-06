@@ -8,7 +8,9 @@
     }],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.3.0"
+        "php": ">=7.3.0",
+        "slim/slim": "4.x-dev",
+        "slim/psr7": "dev-master"
     },
     "autoload": {
         "classmap": ["app", "config"],

@@ -1,7 +1,6 @@
 <?php
-require_once 'vendor/autoload.php';
 session_start();
-
+require_once './vendor/autoload.php';
 ?>
 
 <!DOCTYPE html>
@@ -113,14 +112,7 @@ session_start();
 			</div>
 		</div>
 	</div>
-	<script>
-		$('#LogonError').on('closed.bs.alert', function() {
-			// do something…
-		})
-		$('#sairSucesso').on('closed.bs.alert', function() {
-			// do something…
-		})
-	</script>
+
 	<script src="public/js/jquery-3.2.1.min.js"></script>
 	<script src="public/js/animsition.min.js"></script>
 	<script src="public/js/bootstrap/js/popper.js"></script>

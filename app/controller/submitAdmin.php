@@ -1,4 +1,5 @@
- <?php
+<?php
+session_start();
 require_once __DIR__ . '../../../vendor/autoload.php';
 class SubmitAdmin
 {
@@ -14,10 +15,10 @@ class SubmitAdmin
                 $senha = md5($senha);
                 self::$UserLogon = UserAdmin::Logon($email, $senha);
                 $conn = self::$UserLogon;
-                if (!empty($conn)){
-                    $_SESSION['nome'] = $conn['nome'];
-                    $_SESSION['sobre_nome'] = $conn['sobre_nome'];
-                    $_SESSION['email'] = $conn['email'];
+                if (!empty($conn)) {
+                    $_SESSION['nome']  = $_POST['nome'];
+                    $_SESSION['email']  = $_POST['email'];
+                    $_SESSION['senha']  = $_POST['senha'];
                     header("location:../../administrativo");
                 } else {
                     header("location:../../admin");

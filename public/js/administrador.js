@@ -21,20 +21,20 @@
             ],
             datasets: [{
                 data: [
-                    '12',
-                    '8',
-                    '9',
-                    '17',
-                    '3'
+                    '1',
+                    '13',
+                    '1',
+                    '15',
+                    '17'
 
                 ],
                 lineTension: 0,
                 backgroundColor: [
-                    "#ft6b4y",
-                    "#56d790",
-                    "#ff8367",
-                    "#6979f8",
-                    "#fe67fe"
+                    "red",
+                    "blue",
+                    "yellow",
+                    "cyan",
+                    "green"
                 ],
                 borderColor: '#007bff',
                 borderWidth: 1,
@@ -45,12 +45,12 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: false
+                        beginAtZero: true
                     }
                 }]
             },
             legend: {
-                display: false
+                display: true,
             }
         }
     })

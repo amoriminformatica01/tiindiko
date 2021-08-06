@@ -21,7 +21,7 @@ class Url
  
     public static function getURL( $id )
     {
-        // Verifica se a lista de URL já foi preenchida
+        // Verifica se a lista de URL já foi preenchida7755
         if( self::$url == null )
             self::getURLList();
          

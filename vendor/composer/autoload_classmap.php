@@ -6,16 +6,20 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Connection' => $baseDir . '/app/model/connection/connection.php',
     'ControllerUser' => $baseDir . '/app/controller/validateuser.php',
     'InterfaceConnection' => $baseDir . '/app/model/connection/interfaceConnection.php',
+    'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
     'SubmitAdmin' => $baseDir . '/app/controller/submitAdmin.php',
     'SubmitUser' => $baseDir . '/app/controller/submitUser.php',
+    'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
     'Url' => $baseDir . '/config/filesConfig/router.php',
     'User' => $baseDir . '/app/model/user/user.php',
     'UserAdmin' => $baseDir . '/app/model/user/userAdmin.php',
     'UserCreate' => $baseDir . '/app/model/user/userCreate.php',
+    'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     'ValuesConfig' => $baseDir . '/config/filesConfig/valuesConfig.php',
     'logoutAdmin' => $baseDir . '/app/controller/disableAdmin.php',
     'logoutUser' => $baseDir . '/app/controller/disableLogin.php',

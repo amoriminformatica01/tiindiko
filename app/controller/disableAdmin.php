@@ -4,16 +4,16 @@ require_once __DIR__ . '../../../vendor/autoload.php';
 class logoutAdmin
 {
 
-    function __construct()
+  public static function desconnectAdmin()
     {
        
             unset(
-            $_SESSION['nome'],
-            $_SESSION['sobre_nome'],
-            $_SESSION['email']);
-            $_SESSION['sairSucesso'] ="O Usuárion foi desconectado com sucesso do sistema!";
+            $_SESSION["nome"],
+            $_SESSION["email"],
+            $_SESSION["senha"]);
+            $_SESSION["sairSucesso"] ="O Usuárion foi desconectado com sucesso do sistema!";
            header("location:../../admin");
         
     }
 }
-$logout = new logoutAdmin();
+$logout = logoutAdmin::desconnectAdmin();

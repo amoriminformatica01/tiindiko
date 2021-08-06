@@ -34,7 +34,7 @@ a {
 }
 
 .navbar-brand:hover {
-    color: #EB233C;
+    color: #680b16;
 }
 
 .navbar-toggle {
@@ -118,9 +118,36 @@ a {
     border-bottom: 2px solid #EB233C;
 }
 
+.nav-link:hover {
+    color: #fff;
+    border-bottom: 2px solid #EB233C;
+    background-color: #665566;
+}
+
+.nav-link {
+    color: #fff;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.active {
+    color: #fff;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #665566;
+    border-bottom: 2px solid #EB233C;
+}
+
 .navbar-nav>li>a {
     padding-top: 15px;
     padding-bottom: 13px;
+}
+
+.navbar-toggler {
+    background-color: #EB233C;
+    color: #ffffff;
 }
 
 
@@ -511,10 +538,18 @@ ul.social-buttons li a {
     width: 40px;
 }
 
+.footer {
+    background-color: beige;
+}
+
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
     background-color: #EB233C;
+}
+
+.form-control {
+    border-radius: 13px;
 }
 
 .btn:focus,

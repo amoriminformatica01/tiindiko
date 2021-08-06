@@ -1,6 +1,9 @@
 <?php
-
-
+session_start();
+if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
+    header('location:./admin');
+    $_SESSION['UserEmpty'] = "usuario não esta ativo no sistema";
+}
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -71,126 +74,120 @@
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link active" href="administrativo">
                                 <span data-feather="home"></span>
                                 Dashboard <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="clientes">
                                 <span data-feather="user"></span>
                                 Clientes
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="lojistas">
                                 <span data-feather="package"></span>
                                 Lojistas
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="profissionais">
                                 <span data-feather="package"></span>
                                 Profissionais
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="parceiros">
                                 <span data-feather="users"></span>
                                 Parceiros e Vagas de Emprego
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="planos">
                                 <span data-feather="clipboard"></span>
                                 Planos de Assinaturas
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="usuarios">
                                 <span data-feather="layers"></span>
                                 Usuários Permissões e Perfis
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="categorias">
                                 <span data-feather="layers"></span>
                                 Categorias
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                                Categorias
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="novidades">
                                 <span data-feather="layers"></span>
                                 Novidades e Promoções
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="newsletters">
                                 <span data-feather="layers"></span>
                                 Newsletters
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="comentarios">
                                 <span data-feather="layers"></span>
-                               Comentários
+                                Comentários
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="avaliacoes">
                                 <span data-feather="layers"></span>
-                               Avaliações
+                                Avaliações
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="sugestoes">
                                 <span data-feather="layers"></span>
-                               Sugestões
+                                Sugestões
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="notificacoes">
                                 <span data-feather="layers"></span>
-                               Notificações
+                                Notificações
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="financeiro">
                                 <span data-feather="layers"></span>
-                               Extrato Financeiro
+                                Extrato Financeiro
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="pagamentos">
                                 <span data-feather="layers"></span>
-                               Pagamentos
+                                Pagamentos
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="vendas">
                                 <span data-feather="layers"></span>
-                               Vendas / Adesões
+                                Vendas / Adesões
                             </a>
                         </li>
                     </ul>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                               Boleto de Cobrança
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                               Grafico de Vendas / Adesões
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cobranca">
+                            <span data-feather="layers"></span>
+                            Boleto de Cobrança
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grafico">
+                            <span data-feather="layers"></span>
+                            Grafico de Vendas / Adesões
+                        </a>
+                    </li>
                     </ul>
 
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -199,20 +196,20 @@
                             <span data-feather="plus-circle"></span>
                         </a>
                     </h6>
-                
+
                 </div>
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Administrativo</h1>
+                    <h1 class="h2">Administrativo<?php echo $_SESSION['nome']; ?></h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"></button>
                         </div>
                         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
-                            This week
+                            
                         </button>
                     </div>
                 </div>
