@@ -29,6 +29,7 @@
 
                 ],
                 lineTension: 0,
+                order: 1,
                 backgroundColor: [
                     "red",
                     "blue",
@@ -38,7 +39,13 @@
                 ],
                 borderColor: '#007bff',
                 borderWidth: 1,
-                pointBackgroundColor: 'red'
+                pointBackgroundColor: [
+                    "blue",
+                    "yellow",
+                    "green",
+                    "red",
+                    "cyan"
+                ]
             }]
         },
         options: {

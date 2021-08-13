@@ -42,6 +42,7 @@
             }]
         },
         options: {
+            order: 1,
             scales: {
                 yAxes: [{
                     ticks: {

@@ -169,7 +169,6 @@ a {
     margin: 0px;
     display: inline-box;
     border: rgba(204, 204, 204, 0.18) 1px solid;
-    ;
     border-radius: 50%;
     padding: 0px !important;
 }
@@ -195,7 +194,7 @@ a {
 /*-----Portfolio or Work Starts-------*/
 
 .portfolio {
-    padding: 50px 0;
+    padding: 20px 0;
     background-color: rgba(235, 213, 235, 0.26);
     float: left;
     width: 100%;
