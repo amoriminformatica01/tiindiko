@@ -12,11 +12,12 @@ class SubmitAdmin
             if ((isset($_POST['email'])) && (isset($_POST['senha']))) {
                 $email = addslashes($_POST['email']);
                 $senha = addslashes($_POST['senha']);
-                $senha = md5($senha);
+                //$senha = md5($senha);
                 self::$UserLogon = UserAdmin::Logon($email, $senha);
                 $conn = self::$UserLogon;
-                if (!empty($conn)) {
+                if ($conn) {
                     $_SESSION['nome']  = $_POST['nome'];
+                    $_SESSION['sobre_nome']  = $_POST['sobre_nome'];
                     $_SESSION['email']  = $_POST['email'];
                     $_SESSION['senha']  = $_POST['senha'];
                     header("location:../../administrativo");

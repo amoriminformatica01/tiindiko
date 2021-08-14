@@ -2,6 +2,24 @@
             font-size: .875rem;
         }
         
+        canvas {
+            background-attachment: fixed;
+            background-color: #686979;
+            background-image: url(tiindiko/public/images/background.jpg);
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            cursor: default;
+            text-align: center;
+            width: 100%;
+            float: left;
+        }
+        
+        .test {
+            background: rgba(83, 16, 16, 0.1);
+        }
+        
         .feather {
             width: 16px;
             height: 16px;
