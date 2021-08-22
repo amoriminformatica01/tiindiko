@@ -262,7 +262,7 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
             var modalTitle = alterarCliente.querySelector('.modal-title')
             var modalBodyInput = alterarCliente.querySelector('.modal-body input')
 
-            modalTitle.textContent = 'New message to ' + id
+            modalTitle.textContent = 'Alterar Cliente Código' + id
             modalBodyInput.value = id
             modalBodyInput.value = nome
         })
@@ -281,8 +281,8 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
             var modalTitle = exampleModal.querySelector('.modal-title')
             var modalBodyInput = exampleModal.querySelector('.modal-body input')
 
-            modalTitle.textContent = 'New message to ' + recipient
-            modalBodyInput.value = recipient
+            modalTitle.textContent = 'Mostrar Cliente Código:' + id
+            modalBodyInput.value = id
         })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
