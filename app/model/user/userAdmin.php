@@ -9,12 +9,12 @@ class UserAdmin
     {
         try {
             self::$connection = Connection::valuesConnection();
-            $connection= array();
+            $connection = array();
             $sql = self::$connection->prepare("SELECT * FROM administrador WHERE email =:email  AND senha = :senha LIMIT 1");
             $sql->bindValue(':email', $email);
             $sql->bindValue(':senha', $senha);
             $sql->execute();
-            $connection = $sql->fetchAll(PDO::FETCH_ASSOC);
+            $connection = $sql->fetch(PDO::FETCH_ASSOC);
             return $connection;
         } catch (PDOException $th) {
             echo "Erro no banco de dados" . $th->getMessage();

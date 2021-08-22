@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+    'Cliente' => $baseDir . '/app/model/cliente/cliente.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Connection' => $baseDir . '/app/model/connection/connection.php',
     'ControllerUser' => $baseDir . '/app/controller/validateuser.php',

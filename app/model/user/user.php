@@ -9,7 +9,7 @@ class User
     {
         try {
             self::$connection = Connection::valuesConnection();
-            $connection= array();
+            $connection = array();
             $sql = self::$connection->prepare("SELECT * FROM  users_pro WHERE email = :email AND senha = :senha LIMIT 1");
             $sql->bindValue(':email', $email);
             $sql->bindValue(':senha', $senha);

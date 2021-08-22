@@ -5,6 +5,7 @@ class SubmitAdmin
 {
     public $conn;
     public static $UserLogon;
+    public static $UserView;
     public static $submitLogin;
     public static function logon()
     {
@@ -12,14 +13,18 @@ class SubmitAdmin
             if ((isset($_POST['email'])) && (isset($_POST['senha']))) {
                 $email = addslashes($_POST['email']);
                 $senha = addslashes($_POST['senha']);
-                //$senha = md5($senha);
+                $senha = md5($senha);
+
                 self::$UserLogon = UserAdmin::Logon($email, $senha);
                 $conn = self::$UserLogon;
-                if ($conn) {
-                    $_SESSION['nome']  = $_POST['nome'];
-                    $_SESSION['sobre_nome']  = $_POST['sobre_nome'];
-                    $_SESSION['email']  = $_POST['email'];
-                    $_SESSION['senha']  = $_POST['senha'];
+
+                if (!empty($conn)) {
+
+                    
+                    $_SESSION['nome']  = $conn['nome'];
+                    $_SESSION['sobre_nome']  = $conn['sobre_nome'];
+                    $_SESSION['email']  = $conn['email'];
+                    $_SESSION['telefone']  = $conn['telefone'];         
                     header("location:../../administrativo");
                 } else {
                     header("location:../../admin");
@@ -29,4 +34,5 @@ class SubmitAdmin
         }
     }
 }
+
 $submitLogin = SubmitAdmin::logon();

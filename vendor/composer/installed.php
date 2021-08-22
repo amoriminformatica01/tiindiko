@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'd7f13a83d59d641c911a97d998facc2cc23cf4b0',
+        'reference' => '1ebd25d9c7644f5ae022b00cc51e50644e1299d6',
         'name' => 'developer/tiindiko',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'd7f13a83d59d641c911a97d998facc2cc23cf4b0',
+            'reference' => '1ebd25d9c7644f5ae022b00cc51e50644e1299d6',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
@@ -141,7 +141,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../slim/slim',
             'aliases' => array(),
-            'reference' => '7e7c9dbed22f81db841f751b17c0b63aa86966ed',
+            'reference' => 'c43151423b96969a3a808b0b69ae67a19f632e61',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-php80' => array(
