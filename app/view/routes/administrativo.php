@@ -43,17 +43,17 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
 
 <body>
 
-<?php
+    <?php
 
-require "app/view/routes/header.php";
-?>
+    require "app/view/routes/header.php";
+    ?>
 
     <div class="container-fluid">
         <div class="row">
-        <?php
+            <?php
 
-require "app/view/routes/sidebar.php";
-?>
+            require "app/view/routes/sidebar.php";
+            ?>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">
@@ -66,8 +66,9 @@ require "app/view/routes/sidebar.php";
                             echo "Boa Noite!, ";
                         }
                         echo $_SESSION['nome'];
-                       // echo "Seu ip" . $_SERVER['REMOTE_ADDR'];
+                        // echo "Seu ip" . $_SERVER['REMOTE_ADDR'];
                         ?>
+                        <input  class="btn text-danger" width="100px" heith="40px" id="tempo" type="numer">
                     </h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
@@ -85,28 +86,33 @@ require "app/view/routes/sidebar.php";
                     <div class="row">
                         <div class="col-md-2 col-sm-4 test border border-1  pb-0 my-0">
                             <p class="list-group">total de lojistas</p>
-                            <span class="badge bg-primary rounded-pill">146</span>
+                            <span class="badge bg-primary rounded-pill">0</span>
                         </div>
 
                         <div class="col-md-2 col-sm-4 test border border-1 pb-0 my-0">
                             <p class="list-group">total de Profissionais</p>
-                            <span class="badge bg-primary rounded-pill">1488</span>
+                            <span class="badge bg-primary rounded-pill">0</span>
                         </div>
                         <div class="col-md-2 col-sm-4 test border border-1 pb-0 my-0">
                             <p class="list-group">total de Parceiros </p>
-                            <span class="badge bg-primary rounded-pill">14</span>
+                            <span class="badge bg-primary rounded-pill">0</span>
                         </div>
                         <div class="col-md-2 col-sm-4 test border border-1 pb-0 my-0">
                             <p class="list-group">total de Clientes</p>
-                            <span class="badge bg-primary rounded-pill">77</span>
+                            <span class="badge bg-primary rounded-pill">
+                                <?php
+                                $cliente = Cliente::view();
+                                echo count($cliente);
+                                ?>
+                            </span>
                         </div>
                         <div class="col-md-2 col-sm-4 test border border-1 pb-0 my-0">
                             <p class="list-group">total de Vagas</p>
-                            <span class="badge bg-primary rounded-pill">149</span>
+                            <span class="badge bg-primary rounded-pill">0</span>
                         </div>
                         <div class="col-md-2 col-sm-4 test border border-1 pb-0 my-0">
                             <p class="list-group">total de Novidades</p>
-                            <span class="badge bg-primary rounded-pill">4</span>
+                            <span class="badge bg-primary rounded-pill">0</span>
                         </div>
                     </div>
                 </div>
@@ -137,7 +143,26 @@ require "app/view/routes/sidebar.php";
             </main>
         </div>
     </div>
-
+    <script>
+        function horario() {
+            var data = new Date()
+            var hor = data.getHours()
+            var min = data.getMinutes()
+            var seg = data.getSeconds()
+            if (hor < 10) {
+                hor = "0" + hor
+            }
+            if (min < 10) {
+                min = "0" + min
+            }
+            if (seg < 10) {
+                seg = "0" + seg
+            }
+            var horas = hor + ":" + min + ":" + seg
+            document.getElementById("tempo").value = horas
+        }
+        var tempo = setInterval(horario, 1000)
+    </script>
 
     <!--<footer class="footer text-center"> 2021 © Ti Indiko <a href="#">tiindiko.com.br</a>
     </footer>-->

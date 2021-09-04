@@ -36,4 +36,4 @@ class ControllerUser extends User
         }
     }
 }
-var_dump($controllerUser = ControllerUser::postUser());
+

@@ -37,12 +37,6 @@
         background-color: #fff;
     }
     
-    .nav-link:focus {
-        color: rgb(236, 203, 203);
-        border-bottom: 4px solid #2470dc;
-        background-color: brown;
-    }
-    
     .test {
         border-radius: 11px;
         color: brown;

@@ -87,6 +87,7 @@ class ComposerStaticInitcf085260f03dc6383b52926239427380
         'Cliente' => __DIR__ . '/../..' . '/app/model/cliente/cliente.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Connection' => __DIR__ . '/../..' . '/app/model/connection/connection.php',
+        'ControllerCliente' => __DIR__ . '/../..' . '/app/controller/controllerCliente.php',
         'ControllerUser' => __DIR__ . '/../..' . '/app/controller/validateuser.php',
         'InterfaceConnection' => __DIR__ . '/../..' . '/app/model/connection/interfaceConnection.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',

@@ -10,6 +10,7 @@ return array(
     'Cliente' => $baseDir . '/app/model/cliente/cliente.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Connection' => $baseDir . '/app/model/connection/connection.php',
+    'ControllerCliente' => $baseDir . '/app/controller/controllerCliente.php',
     'ControllerUser' => $baseDir . '/app/controller/validateuser.php',
     'InterfaceConnection' => $baseDir . '/app/model/connection/interfaceConnection.php',
     'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',

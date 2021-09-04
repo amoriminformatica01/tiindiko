@@ -68,6 +68,7 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
                         echo $_SESSION['nome'];
                         //echo "Seu ip" . $_SERVER['REMOTE_ADDR'];
                         ?>
+                        <input class="btn text-danger" width="100px" heith="40px" id="tempo" type="numer">
                     </h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
@@ -137,14 +138,17 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
                                 }
                                 echo "<td>" . $arrayCliente[$i]['id'];
                                 echo "<td>" . $arrayCliente[$i]['nome'];
-                                echo "<td>" . $arrayCliente[$i]['sobre_nome'];
+                                echo "<td>" . substr($arrayCliente[$i]['sobre_nome'], -10);
                                 echo "<td>" . $arrayCliente[$i]['email'];
-                                echo "<td>" . "<a href=" . "https://wa.me/" . $arrayCliente[$i]['telefone'] . ">" . $arrayCliente[$i]['telefone'] . "</td>";
+                                echo "<td>" . "<a href=https://api.whatsapp.com/send/?phone=+55" . $arrayCliente[$i]['telefone'] . "&text=Ola," . "%20" . $arrayCliente[$i]['nome'] . "&app_absent=0" . " " . "target=_blank" . ">" . $arrayCliente[$i]['telefone'] . '</a>' . "</td>";
                                 echo "<td>" . $arrayCliente[$i]['situacao'];
                                 echo "<td>" . $arrayCliente[$i]['data_de_cadastro'];
 
                             ?>
-                                <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alterarCliente"  data-bs-id="<?php echo $arrayCliente[$i]['id']?>"data-bs-nome="<?php echo $arrayCliente[$i]['nome']?>">Alterar</button><button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#VizualizarCliente">Vizualizar</button></td>
+                                <td><button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#visualizarCliente" data-bs-id="<?php echo $arrayCliente[$i]['id'] ?>" data-bs-nome="<?php echo $arrayCliente[$i]['nome'] ?>" data-bs-sobre_nome="<?php echo $arrayCliente[$i]['sobre_nome'] ?>" data-bs-email="<?php echo $arrayCliente[$i]['email'] ?>" data-bs-telefone="<?php echo $arrayCliente[$i]['telefone'] ?>">Vizualizar</button>
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alterarCliente" data-bs-id="<?php echo $arrayCliente[$i]['id'] ?>" data-bs-nome="<?php echo $arrayCliente[$i]['nome'] ?>" data-bs-sobre_nome="<?php echo $arrayCliente[$i]['sobre_nome'] ?>" data-bs-email="<?php echo $arrayCliente[$i]['email'] ?>" data-bs-telefone="<?php echo $arrayCliente[$i]['telefone'] ?>">Alterar</button>
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DesativarCliente">Desativar</button>
+                                </td>
                             <?php
 
                                 echo "</tr>";
@@ -167,20 +171,37 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                    <form action="app/controller/controllerCliente.php" method="POST">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label for="recipient-name" class="col-form-label">Nome:</label>
+                                <input type="text" class="form-control" id="nome" name="nome">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="message-text" class="col-form-label">Sobre Nome:</label>
+                                <input type="text" class="form-control" id="sobre_nome" name="sobre_nome">
+                            </div>
+                            <div class="col-md-8">
+                                <label for="recipient-name" class="col-form-label">E-mail:</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="message-text" class="col-form-label">Telefone:</label>
+                                <input type="tel" class="form-control" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" id="telefone" name="telefone">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden" value="<?php echo 'Ativo'; ?>" id="situacao" name="situacao">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden" value="<?php echo date('d,m,Y'); ?>" id="data_de_cadastro" name="data_de_cadastro">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Cadastrar</button>
+                    <input type="submit" class="btn btn-primary" name="Cadastrar" value="Cadastrar">
+
+                    </form>
                 </div>
             </div>
         </div>
@@ -196,20 +217,39 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="">
+                    <form action="app/controller/controllerCliente.php" method="POST">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label for="recipient-name" class="col-form-label">Id:</label>
+                                <input type="hidden" class="form-control" id="id" name="id">
+                            </div>
+                            <div class="col-md-7">
+                                <label for="recipient-name" class="col-form-label">Nome:</label>
+                                <input type="text" class="form-control" id="nome" name="nome">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="message-text" class="col-form-label">Sobre Nome:</label>
+                                <input type="text" class="form-control" id="sobre_nome" name="sobre_nome">
+                            </div>
+                            <div class="col-md-8">
+                                <label for="recipient-name" class="col-form-label">E-mail:</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="message-text" class="col-form-label">Telefone:</label>
+                                <input type="tel" class="form-control" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" id="telefone" name="telefone">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden" value="<?php echo 'Ativo'; ?>" id="situacao" name="situacao">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden" value="<?php echo date('d,m,Y'); ?>" id="data_de_cadastro" name="data_de_cadastro">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="nome"></textarea>
-                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <input type="submit" class="btn btn-primary" name="Alterar" value="Alterar">
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Alterar</button>
                 </div>
             </div>
         </div>
@@ -217,7 +257,7 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
     <!--fim Modal Cadastro-->
 
     <!--modal deletar-->
-    <div class="modal fade" id="VizualizarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="visualizarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -246,30 +286,29 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
     <!--fim Modal deletar-->
     <!--<footer class="footer text-center"> 2021 © Ti Indiko <a href="#">tiindiko.com.br</a>
     </footer>-->
-
     <script>
-        var alterarCliente = document.getElementById('alterarCliente')
-        alterarCliente.addEventListener('show.bs.modal', function(event) {
-            // Button that triggered the modal
-            var button = event.relatedTarget
-            // Extract info from data-bs-* attributes
-            var id = button.getAttribute('data-bs-id')
-            var nome = button.getAttribute('data-bs-nome')
-            // If necessary, you could initiate an AJAX request here
-            // and then do the updating in a callback.
-            //
-            // Update the modal's content.
-            var modalTitle = alterarCliente.querySelector('.modal-title')
-            var modalBodyInput = alterarCliente.querySelector('.modal-body input')
-
-            modalTitle.textContent = 'Alterar Cliente Código' + id
-            modalBodyInput.value = id
-            modalBodyInput.value = nome
-        })
+        function horario() {
+            var data = new Date()
+            var hor = data.getHours()
+            var min = data.getMinutes()
+            var seg = data.getSeconds()
+            if (hor < 10) {
+                hor = "0" + hor
+            }
+            if (min < 10) {
+                min = "0" + min
+            }
+            if (seg < 10) {
+                seg = "0" + seg
+            }
+            var horas = hor + ":" + min + ":" + seg
+            document.getElementById("tempo").value = horas
+        }
+        var tempo = setInterval(horario, 1000)
     </script>
     <script>
-        var vizualizarCliente = document.getElementById('vizualizarCliente')
-        vizualizarCliente.addEventListener('show.bs.modal', function(event) {
+        var visualizarCliente = document.getElementById('visualizarCliente')
+        visualizarCliente.addEventListener('show.bs.modal', function(event) {
             // Button that triggered the modal
             var button = event.relatedTarget
             // Extract info from data-bs-* attributes
@@ -278,12 +317,67 @@ if ((!isset($_SESSION['email'])) && (!isset($_SESSION['senha']))) {
             // and then do the updating in a callback.
             //
             // Update the modal's content.
-            var modalTitle = exampleModal.querySelector('.modal-title')
-            var modalBodyInput = exampleModal.querySelector('.modal-body input')
+            var modalTitle = visualizarCliente.querySelector('.modal-title')
+            var modalBodyInput = visualizarCliente.querySelector('.modal-body input')
 
             modalTitle.textContent = 'Mostrar Cliente Código:' + id
             modalBodyInput.value = id
         })
+    </script>
+    <script>
+        var alterarCliente = document.getElementById('alterarCliente')
+        alterarCliente.addEventListener('show.bs.modal', function(event) {
+            // Button that triggered the modal
+            var button = event.relatedTarget
+            // Extract info from data-bs-* attributes
+            var id = button.getAttribute('data-bs-id')
+            var nome = button.getAttribute('data-bs-nome')
+            var sobre_nome = button.getAttribute('data-bs-sobre_nome')
+            var email = button.getAttribute('data-bs-email')
+            var telefone = button.getAttribute('data-bs-telefone')
+            // If necessary, you could initiate an AJAX request here
+            // and then do the updating in a callback.
+            //
+            // Update the modal's content.
+            var modalTitle = alterarCliente.querySelector('.modal-title')
+            var modalBodyInputId = alterarCliente.querySelector('#id')
+            var modalBodyInputNome = alterarCliente.querySelector('#nome')
+            var modalBodyInputSobreNome = alterarCliente.querySelector('#sobre_nome')
+            var modalBodyInputEmail = alterarCliente.querySelector('#email')
+            var modalBodyInputTelefone = alterarCliente.querySelector('#telefone')
+
+            modalTitle.textContent = 'Alterar Cliente ' + id
+            modalBodyInputNome.value = nome
+            modalBodyInputSobreNome.value = sobre_nome
+            modalBodyInputEmail.value = email
+            modalBodyInputTelefone.value = telefone
+        })
+    </script>
+
+    <script>
+        function mask(o, f) {
+            setTimeout(function() {
+                var v = mphone(o.value);
+                if (v != o.value) {
+                    o.value = v;
+                }
+            }, 1);
+        }
+
+        function mphone(v) {
+            var r = v.replace(/\D/g, "");
+            r = r.replace(/^0/, "");
+            if (r.length > 10) {
+                r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+            } else if (r.length > 5) {
+                r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+            } else if (r.length > 2) {
+                r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+            } else {
+                r = r.replace(/^(\d*)/, "($1");
+            }
+            return r;
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>-->
