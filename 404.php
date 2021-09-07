@@ -31,7 +31,7 @@
         </div>
         <div class="container-fluid">
           <h1 class="text-center">Pagína não encontrada.</h1>
-          <a href="/../tiindiko" class="banner-button">Voltar ao site</a>
+          <a href="/../site" class="banner-button">Voltar ao site</a>
         </div>
       </div>
     </div>

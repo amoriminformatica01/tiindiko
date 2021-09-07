@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -42,12 +40,13 @@ class ControllerCliente extends Cliente
     public static function postUpdate()
     {
         if (isset($_POST['Alterar'])) {
+            $id = $_GET['id'];
             $nome = addslashes($_POST['nome']);
             $sobre_nome = addslashes($_POST['sobre_nome']);
             $email = addslashes($_POST['email']);
             $telefone = addslashes($_POST['telefone']);
-            self::$clientUpdate = Cliente::update($nome, $sobre_nome, $email, $telefone);
-           //header("location:../../clientes");
+            self::$clientUpdate = Cliente::update($id, $nome, $sobre_nome, $email, $telefone);
+            header("location:../../clientes");
             $_SESSION["UserSuccess"] = "O Usuário Alterado com sucesso!!! ";
         }
     }

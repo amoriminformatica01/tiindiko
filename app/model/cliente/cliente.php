@@ -81,6 +81,3 @@ class Cliente
     {
     }
 }
-
-//var_dump($teste = Cliente::create(42,'cazuza', 'castro', 'super@test.com', '99951294', '22/09/2021'));
-//var_dump($teste = Cliente::delete());

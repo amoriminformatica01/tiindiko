@@ -19,10 +19,10 @@
                        <a class="nav-link" href="empresas">Para Empresas</a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="parceiro">Seja Um Parceiro</a>
+                       <a class="nav-link" href="">Seja Um Parceiro</a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="cadastro">Cadastre-se</a>
+                       <a class="nav-link" href="">Cadastre-se</a>
                    </li>f
                </ul>
            </div>
